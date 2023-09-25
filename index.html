@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" type="image/gif" href="/giphy.gif" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <!-- Leaflet library -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      defer
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <!-- Leaflet routin machine -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css"
+    />
+    <!-- <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script> -->
+    <script
+      defer
+      src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"
+    ></script>
+
+    <!-- Leaflet routin machine -->
+    <script defer src="script.js"></script>
+    <title>Map your activities</title>
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo">
+        <img src="giphy.gif" alt="Logo" class="logo" />
+        <h1 class="logo-text">Your daily activities</h1>
+      </div>
+      <ul class="workouts">
+        <form class="form hidden">
+          <div class="form__row">
+            <label class="form__label">Type</label>
+            <select class="form__input form__input--type">
+              <option value="running">Running</option>
+              <option value="cycling">Cycling</option>
+              <option value="hiking">Hiking</option>
+              <option value="ski">Ski</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form__row">
+            <label class="form__label">Distance</label>
+            <input
+              class="form__input form__input--distance"
+              placeholder="km"
+              title="Enter distance"
+            />
+          </div>
+          <div class="form__row">
+            <label class="form__label">Duration</label>
+            <input
+              class="form__input form__input--duration"
+              placeholder="min"
+              title="Enter time"
+            />
+          </div>
+          <div class="form__row">
+            <label class="form__label">Cadence</label>
+            <input
+              class="form__input form__input--cadence"
+              placeholder="step/min"
+              title="Enter steps you make for minute"
+            />
+          </div>
+          <div class="form__row form__row--hidden">
+            <label class="form__label">Elev Gain</label>
+            <input
+              class="form__input form__input--elevation"
+              placeholder="meters"
+              title="Enter elevation"
+            />
+          </div>
+          <div class="form__row form__row--hidden">
+            <label class="form__label">Description</label>
+            <input
+              class="form__input form__input--descripion"
+              placeholder="activity"
+              title="Enter activity"
+            />
+          </div>
+          <button class="form__btn">OK</button>
+        </form>
+      </ul>
+    </div>
+    <!-- <div class="map__consteiner"> -->
+    <div id="map"></div>
+    <div class="buttons">
+      <button class="current" title="Go to your location">
+        <img src="currLoc.png" class="curr__btn" />
+      </button>
+      <button
+        class="submit"
+        title="For submiting the form hit Enter or use button"
+      >
+        <img src="submit.png" class="curr__btn" />
+      </button>
+      <div class="places__fav">
+        <button class="favorite favorite--remove" title="Delete all places">
+          <img src="fav_del.png" class="fav__btn" />
+        </button>
+        <button class="favorite favorite--add" title="Places to visit">
+          <img src="fav.png" class="fav__btn" />
+        </button>
+        <button class="del_all_work" title="Delete all workouts">
+          <img src="del.png" class="del__btn" />
+        </button>
+      </div>
+      <div class="places">
+        <button class="navigate" title="Navigate me ">
+          <img src="navTo.png" class="nav__btn" />
+        </button>
+        <button class="navigate--off" title="Close navigation">
+          <img src="closeNav.png" class="nav__btn--off" />
+        </button>
+      </div>
+    </div>
+    <!-- </div> -->
+  </body>
+</html>

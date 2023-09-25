@@ -1,0 +1,407 @@
+:root {
+  --color-brand--1: #ffb545;
+  --color-brand--2: #00c46a;
+  --color-brand--3: #df05f3;
+  --color-brand--4: #0bc8f3;
+  --color-brand--5: #ff3f05;
+
+  --color-dark--1: #2d3439;
+  --color-dark--2: #42484d;
+  --color-light--1: #aaa;
+  --color-light--2: #ececec;
+  --color-light--3: rgb(214, 222, 224);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  color: var(--color-light--2);
+  font-weight: 400;
+  line-height: 1.6;
+  height: 100vh;
+  overscroll-behavior-y: none;
+
+  background-color: #f4e0b7;
+  padding: 2.5rem;
+
+  display: flex;
+}
+
+/* GENERAL */
+a:link,
+a:visited {
+  color: var(--color-brand--1);
+}
+
+/* SIDEBAR */
+.sidebar {
+  flex-basis: 50rem;
+  background-color: rgb(40, 44, 50);
+  border-radius: 20px;
+  padding: 3rem 5rem 4rem 5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 5px 5px 15px 5px rgba(58, 60, 64, 0.668);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+
+  height: 6.2rem;
+  margin-bottom: 3rem;
+}
+.logo-text {
+  font-size: 2.5rem;
+  font-style: italic;
+  color: rgb(132, 171, 237);
+  left: 5rem;
+  /* align-self: center; */
+}
+
+.workouts {
+  list-style: none;
+  height: 77vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.workouts::-webkit-scrollbar {
+  width: 0;
+}
+
+.workout {
+  background-color: var(--color-dark--2);
+  border-radius: 5px;
+  padding: 0rem 2.25rem 1.7rem 2.25rem;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0.75rem 1.5rem;
+}
+.workout--running {
+  border-left: 8px solid var(--color-brand--2);
+}
+.workout--cycling {
+  border-left: 8px solid var(--color-brand--1);
+}
+.workout--hiking {
+  border-left: 8px solid var(--color-brand--3);
+}
+.workout--ski {
+  border-left: 8px solid var(--color-brand--4);
+}
+.workout--other {
+  border-left: 8px solid var(--color-brand--5);
+}
+
+.workout__title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  grid-column: 1 / -1;
+}
+
+.workout__details {
+  display: flex;
+  align-items: baseline;
+}
+
+.workout__icon {
+  font-size: 2rem;
+  margin-right: 0.2rem;
+  height: 0.3rem;
+}
+
+.workout__value {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.workout__unit {
+  font-size: 1.1rem;
+  color: var(--color-light--1);
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.btn--delete-workout {
+  position: relative;
+
+  display: flex;
+  top: 0rem;
+  left: 35rem;
+  font-size: 2rem;
+  color: #fff;
+  background: none;
+  border: none;
+}
+.form {
+  background-color: var(--color-dark--2);
+  border-radius: 5px;
+  padding: 1.5rem 2.75rem;
+  margin-bottom: 1.75rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 2.5rem;
+
+  /* Match height and activity boxes */
+  height: 9.25rem;
+  transition: all 0.5s, transform 1ms;
+}
+
+.form.hidden {
+  transform: translateY(-30rem);
+  height: 0;
+  padding: 0 2.25rem;
+  margin-bottom: 0;
+  opacity: 0;
+}
+
+.form__row {
+  display: flex;
+  align-items: center;
+}
+
+.form__row--hidden {
+  display: none;
+}
+
+.form__label {
+  flex: 0 0 50%;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.form__input {
+  width: 100%;
+  padding: 0.3rem 1.1rem;
+  font-family: inherit;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--color-light--3);
+  transition: all 0.2s;
+}
+
+.form__input:focus {
+  outline: none;
+  background-color: #fff;
+}
+
+.form__btn {
+  display: none;
+}
+
+.copyright {
+  margin-top: auto;
+  font-size: 1.3rem;
+  text-align: center;
+  color: var(--color-light--1);
+}
+
+.twitter-link:link,
+.twitter-link:visited {
+  color: var(--color-light--1);
+  transition: all 0.2s;
+}
+
+.twitter-link:hover,
+.twitter-link:active {
+  color: var(--color-light--2);
+}
+
+/* MAP */
+#map {
+  flex: 1;
+  height: 100%;
+  left: 1rem;
+  border-radius: 20px;
+  background-color: var(--color-light--1);
+  box-shadow: 5px 5px 15px 5px rgba(58, 60, 64, 0.668);
+}
+
+/* Popup width is defined in JS using options */
+.leaflet-popup .leaflet-popup-content-wrapper {
+  /* background-color: var(--color-dark--1); */
+  background-color: rgba(0, 0, 0, 0.726);
+  color: var(--color-light--2);
+  border-radius: 10px;
+  padding-right: 0.6rem;
+}
+
+.leaflet-popup .leaflet-popup-content {
+  font-size: 1.5rem;
+}
+
+.leaflet-popup .leaflet-popup-tip {
+  background-color: var(--color-dark--1);
+}
+
+.running-popup .leaflet-popup-content-wrapper {
+  border-left: 8px solid var(--color-brand--2);
+}
+.cycling-popup .leaflet-popup-content-wrapper {
+  border-left: 8px solid var(--color-brand--1);
+}
+.hiking-popup .leaflet-popup-content-wrapper {
+  border-left: 8px solid var(--color-brand--3);
+}
+.ski-popup .leaflet-popup-content-wrapper {
+  border-left: 8px solid var(--color-brand--4);
+}
+.other-popup .leaflet-popup-content-wrapper {
+  border-left: 8px solid var(--color-brand--5);
+}
+.places {
+  position: absolute;
+  bottom: 38px;
+  right: 20px;
+  padding: 10px;
+  z-index: 400;
+}
+.places__fav {
+  position: absolute;
+  bottom: 38px;
+  left: 528px;
+  padding: 10px;
+  z-index: 400;
+}
+.favorite {
+  border-radius: 10px;
+  cursor: pointer;
+}
+.del_all_work {
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.navigate {
+  font-style: italic;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.navigate--off {
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.fav__btn {
+  height: 3.5rem;
+  width: 4.8rem;
+}
+.del__btn {
+  height: 3.5rem;
+  width: 4rem;
+}
+.nav__btn {
+  height: 3.5rem;
+  width: 4.8rem;
+}
+.nav__btn--off {
+  height: 3.5rem;
+  width: 4.8rem;
+}
+
+.current {
+  position: absolute;
+  /* background: none; */
+  top: 40px;
+  right: 30px;
+  padding: 10px;
+  z-index: 400;
+}
+.submit {
+  position: absolute;
+  /* background: none; */
+  border-radius: 10px;
+  cursor: pointer;
+  bottom: 95px;
+  left: 537px;
+  padding: 10px;
+  z-index: 400;
+}
+.curr__btn {
+  height: 2.5rem;
+}
+.leaflet-routing-error {
+  width: 300px;
+  background-color: rgb(11, 11, 11);
+  padding-top: 2px;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  opacity: 0.25;
+}
+.leaflet-routing-alt {
+  color: rgb(245, 244, 244);
+  /* background-color: rgba(9, 61, 94, 0.27); */
+  border: none;
+  /* border-radius: 15px; */
+}
+.leaflet-touch .leaflet-control-attribution,
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+  /* box-shadow: none; */
+
+  border-radius: 15px;
+  background-color: rgba(9, 61, 94, 0.77);
+}
+/* .leaflet-control {
+  position: relative;
+  z-index: 800;
+  pointer-events: stroke;
+  background-color: red;
+  pointer-events: painted;
+} */
+.leaflet-routing-alt tr:hover {
+  /* background-color: rgb(9, 61, 94); */
+  color: black;
+  cursor: pointer;
+}
+.leaflet-routing-container {
+  top: 60px;
+  right: 0px;
+}
+.leaflet-container {
+  /* cursor: none; */
+  cursor: crosshair !important;
+}
+@media only screen and (max-width: 1000px) {
+  .sidebar {
+    display: none;
+  }
+
+  .submit {
+    visibility: hidden;
+  }
+  .btn--delete-workout {
+    visibility: hidden;
+  }
+  .del_all_work {
+    visibility: hidden;
+  }
+  .leaflet-routing-container {
+    visibility: hidden;
+  }
+  #map {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+  }
+  .places__fav {
+    display: flex;
+    left: 35px;
+  }
+}
